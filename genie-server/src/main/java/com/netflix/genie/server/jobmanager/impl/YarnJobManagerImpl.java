@@ -114,7 +114,7 @@ public class YarnJobManagerImpl extends JobManagerImpl {
      * @param processBuilder The process builder to modify.
      * @throws GenieException If there are any issues.
      */
-    private void setupYarnProcess(final ProcessBuilder processBuilder) throws GenieException {
+    protected void setupYarnProcess(final ProcessBuilder processBuilder) throws GenieException {
         // setup the HADOOP specific variables
         final Map<String, String> processEnv = processBuilder.environment();
         processEnv.put("HADOOP_CONF_DIR", this.getJobDir() + "/conf");
