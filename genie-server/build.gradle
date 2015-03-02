@@ -16,7 +16,7 @@ dependencies {
     compile 'commons-collections:commons-collections:3.2.1'
     compile 'commons-httpclient:commons-httpclient:3.1'
     compile 'javax.mail:mail:1.4.4'
-    compile 'org.apache.commons:commons-configuration:1.10'
+    compile 'commons-configuration:commons-configuration:1.10'
     
     //Spring
     compile 'org.springframework.data:spring-data-jpa:1.6.0.RELEASE'
