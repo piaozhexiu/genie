@@ -166,6 +166,7 @@ public class SparkYarnJobManagerImpl extends JobManagerImpl {
         processEnv.put("HADOOP_CONF_DIR", this.getJobDir() + "/conf");
         processEnv.put("HADOOP_USER_NAME", this.getJob().getUser());
         processEnv.put("HADOOP_GROUP_NAME", this.getGroupName());
+        processEnv.put("SPARK_HOME", "/apps/spark/1.3");
 
         // set the variables to be added to the core-site xml. Format of this variable is:
         // key1=value1;key2=value2;key3=value3
