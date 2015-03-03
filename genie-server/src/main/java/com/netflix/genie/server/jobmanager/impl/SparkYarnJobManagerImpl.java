@@ -31,6 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Arrays;
 import java.util.List;
@@ -57,7 +58,10 @@ public class SparkYarnJobManagerImpl extends YarnJobManagerImpl {
      * @param jobService     The job service to use.
      * @param commandService The command service to use.
      */
-    public SparkYarnJobManagerImpl(JobMonitor jobMonitor, JobService jobService, CommandConfigService commandService) {
+    @Inject
+    public SparkYarnJobManagerImpl(final JobMonitor jobMonitor,
+                                   final JobService jobService,
+                                   final CommandConfigService commandService) {
         super(jobMonitor, jobService, commandService);
     }
 
