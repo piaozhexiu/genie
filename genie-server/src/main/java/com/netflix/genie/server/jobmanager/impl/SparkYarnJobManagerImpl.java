@@ -50,7 +50,6 @@ public class SparkYarnJobManagerImpl extends JobManagerImpl {
     private static final String COPY_COMMAND_KEY = "com.netflix.genie.server.job.manager.yarn.command.cp";
     private static final String MAKE_DIRECTORY_COMMAND_KEY = "com.netflix.genie.server.job.manager.yarn.command.mkdir";
     private static final String SPARK_DEPLOY_MODE = "com.netflix.genie.server.job.manager.spark.deploy.mode";
-    private static final String SPARK_DRIVER_DEP_JARS = "com.netflix.genie.server.job.manager.spark.driver.dep.jars";
     private static final String SPARK_DRIVER_JAVA_OPTS = "com.netflix.genie.server.job.manager.spark.driver.java.opts";
     private static final String SPARK_DRIVER_MEM = "com.netflix.genie.server.job.manager.spark.driver.memory";
     private static final String SPARK_HS_ADDR = "com.netflix.genie.server.job.manager.spark.hs.address";
@@ -96,8 +95,6 @@ public class SparkYarnJobManagerImpl extends JobManagerImpl {
         // Check the parameters
         final String deployMode = ConfigurationManager
                 .getConfigInstance().getString(SPARK_DEPLOY_MODE, "cluster");
-        final String driverDepJars = ConfigurationManager
-                .getConfigInstance().getString(SPARK_DRIVER_DEP_JARS, null);
         final String driverJavaOpts = ConfigurationManager
                 .getConfigInstance().getString(SPARK_DRIVER_JAVA_OPTS, null);
         final String driverMem = ConfigurationManager
@@ -123,10 +120,6 @@ public class SparkYarnJobManagerImpl extends JobManagerImpl {
         final List<String> processArgs = this.createBaseProcessArguments();
         processArgs.add("--deploy-mode");
         processArgs.add(deployMode);
-        if (driverDepJars != null) {
-            processArgs.add("--jars");
-            processArgs.add(driverDepJars);
-        }
         if (driverJavaOpts != null) {
             processArgs.add("--driver-java-options");
             processArgs.add(driverJavaOpts);
